@@ -1,0 +1,185 @@
+@import "tailwindcss";
+
+:root {
+  --background: #FBFBF2;
+  --foreground: #2C3333;
+  --brand-coral: #FF4D4D;
+  --brand-green: #1A4D2E;
+  --brand-dark-green: #E8F5E9;
+  --brand-bg: #FBFBF2;
+  --card-bg: #FFFFFF;
+  --border-color: #D6D6C2;
+  --card-shadow: 0 20px 40px -15px rgba(26, 77, 46, 0.08);
+}
+
+.dark {
+  --background: #0F1210;
+  --foreground: #FFFFFF;
+  --brand-coral: #FF6B5B;
+  --brand-green: #4CAF50;
+  --brand-dark-green: #1A2E26;
+  --brand-bg: #0F1210;
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --card-shadow: none;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand-coral: var(--brand-coral);
+  --color-brand-green: var(--brand-green);
+  --color-brand-dark-green: var(--brand-dark-green);
+  --color-brand-bg: var(--brand-bg);
+  --color-border: var(--border-color);
+  --shadow-card: var(--card-shadow);
+  --font-sans: var(--font-inter);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+}
+
+@utility hero-gradient {
+  background: radial-gradient(circle at 20% 40%, rgba(76, 175, 80, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(255, 107, 91, 0.05) 0%, transparent 40%);
+}
+
+@utility dot-pattern {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+@utility hero-card-bg {
+  background: linear-gradient(135deg, #1A2E26 0%, #0F1210 100%);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@utility glass-code-window {
+  background: rgba(26, 46, 38, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Lenis Recommended CSS */
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Noise Texture Overlay */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.05;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Animated Grid Background */
+.grid-background {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(to right, var(--border-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border-color) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(circle at center, black, transparent 90%);
+  opacity: 0.2;
+  z-index: -3;
+}
+
+.dark .grid-background {
+  opacity: 0.1;
+  background-size: 50px 50px;
+}
+
+/* Aurora Gradients */
+.aurora {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -4;
+  filter: blur(100px);
+  opacity: 0.2;
+  overflow: hidden;
+}
+
+.aurora-blob {
+  position: absolute;
+  width: 50vw;
+  height: 50vw;
+  border-radius: 50%;
+  filter: blur(80px);
+}
+
+.aurora-1 {
+  background: var(--brand-green);
+  top: -10%;
+  left: -10%;
+  animation: aurora-move-1 20s infinite alternate ease-in-out;
+}
+
+.aurora-2 {
+  background: var(--brand-coral);
+  bottom: -10%;
+  right: -10%;
+  animation: aurora-move-2 25s infinite alternate ease-in-out;
+}
+
+@keyframes aurora-move-1 {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(20%, 20%) scale(1.2); }
+}
+
+@keyframes aurora-move-2 {
+  from { transform: translate(0, 0) scale(1.2); }
+  to { transform: translate(-20%, -20%) scale(1); }
+}
+
+@keyframes morph {
+  0%, 100% {
+    border-radius: 40% 60% 70% 30% / 40% 40% 60% 60%;
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: rotate(5deg) scale(1.05);
+  }
+  50% {
+    border-radius: 30% 70% 50% 50% / 50% 30% 70% 50%;
+    transform: rotate(0deg) scale(1.1);
+  }
+  75% {
+    border-radius: 70% 30% 60% 40% / 30% 70% 40% 60%;
+    transform: rotate(-5deg) scale(1.05);
+  }
+}
+
+.animate-morph {
+  animation: morph 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
