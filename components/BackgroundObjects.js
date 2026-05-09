@@ -14,7 +14,7 @@ export default function BackgroundObjects() {
 
   useEffect(() => {
     // Generate bubbles only on client
-    const bubbleCount = 80; // High density as requested
+    const bubbleCount = 100; // High density as requested
 
     const generatedObjects = [
       ...[...Array(bubbleCount)].map((_, i) => {
