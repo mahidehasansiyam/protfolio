@@ -4,8 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
 /**
- * High-Visibility Cinematic Bubble System (Hydration-Safe).
- * Fixes the 'missing animation' by ensuring random styles are only generated on the client.
+ * Premium Cinematic Bubble System (Hydration-Safe).
+ * High-density ambient background with floating bubbles.
  */
 export default function BackgroundObjects() {
   const containerRef = useRef(null);
@@ -13,19 +13,24 @@ export default function BackgroundObjects() {
   const [objects, setObjects] = useState([]);
 
   useEffect(() => {
-    // 1. Generate random data only on the client to avoid hydration mismatch
-    const bubbleCount = 12;
+    // Generate bubbles only on client
+    const bubbleCount = 80; // High density as requested
 
     const generatedObjects = [
-      // Bubbles
-      ...[...Array(bubbleCount)].map((_, i) => ({
-        type: "bubble",
-        id: `bubble-${i}`,
-        width: 5 + Math.random() * 5,
-        height: 5 + Math.random() * 5,
-        background: "rgba(255, 255, 255, 0.05)",
-        blur: 0,
-      })),
+      ...[...Array(bubbleCount)].map((_, i) => {
+        const size = 2 + Math.random() * 10; // Variety of sizes
+        return {
+          id: `bubble-${i}`,
+          width: size,
+          height: size,
+          // Subtle white/blueish tint
+          background: `rgba(255, 255, 255, ${0.02 + Math.random() * 0.08})`,
+          blur: Math.random() > 0.8 ? Math.random() * 3 : 0,
+          border: `1px solid rgba(255, 255, 255, ${0.05 + Math.random() * 0.15})`,
+          // Add a slight glow to some bubbles
+          boxShadow: Math.random() > 0.9 ? "0 0 10px rgba(255, 255, 255, 0.1)" : "none",
+        };
+      }),
     ];
 
     setObjects(generatedObjects);
@@ -36,38 +41,49 @@ export default function BackgroundObjects() {
     if (!mounted || !containerRef.current) return;
 
     const ctx = gsap.context(() => {
-      const els = containerRef.current.querySelectorAll(".ambient-object");
+      const els = containerRef.current.querySelectorAll(".ambient-bubble");
 
       els.forEach((el, i) => {
-        // Initial random position
+        // Initial random spread
         gsap.set(el, {
-          x: gsap.utils.random(0, 100) + "vw",
-          y: gsap.utils.random(0, 100) + "vh",
-          scale: gsap.utils.random(0.5, 1.2),
+          x: gsap.utils.random(-10, 110) + "vw",
+          y: gsap.utils.random(-10, 110) + "vh",
+          scale: gsap.utils.random(0.3, 1.8),
           opacity: 0,
         });
 
-        // Entrance
+        // Soft entrance
         gsap.to(el, {
-          opacity: 0.5,
-          duration: 2,
-          delay: i * 0.02,
+          opacity: 1,
+          duration: gsap.utils.random(2, 4),
+          delay: gsap.utils.random(0, 3),
+          ease: "power2.inOut",
         });
 
-        // Drift
+        // Complex floating motion
+        // Use separate tweens for x and y with different durations for organic motion
         gsap.to(el, {
-          x: "+=" + gsap.utils.random(-300, 300),
-          y: "+=" + gsap.utils.random(-300, 300),
-          duration: gsap.utils.random(20, 40),
+          x: (Math.random() > 0.5 ? "+=" : "-=") + gsap.utils.random(200, 500),
+          duration: gsap.utils.random(40, 80),
           repeat: -1,
           yoyo: true,
           ease: "sine.inOut",
         });
 
-        // Pulse
         gsap.to(el, {
-          scale: "+=0.4",
-          duration: gsap.utils.random(5, 10),
+          y: (Math.random() > 0.5 ? "+=" : "-=") + gsap.utils.random(200, 500),
+          duration: gsap.utils.random(35, 75),
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+        });
+
+        // Pulse and slight rotation
+        gsap.to(el, {
+          scale: "*=1.3",
+          rotation: gsap.utils.random(-45, 45),
+          opacity: gsap.utils.random(0.2, 0.9),
+          duration: gsap.utils.random(5, 12),
           repeat: -1,
           yoyo: true,
           ease: "power1.inOut",
@@ -84,20 +100,21 @@ export default function BackgroundObjects() {
     <div
       ref={containerRef}
       className="fixed inset-0 overflow-hidden pointer-events-none z-[1]"
+      aria-hidden="true"
     >
       {objects.map((obj) => (
         <div
           key={obj.id}
-          className={`ambient-object absolute rounded-full ${obj.type}`}
+          className="ambient-bubble absolute rounded-full"
           style={{
             width: `${obj.width}px`,
             height: `${obj.height}px`,
             background: obj.background,
             filter: obj.blur > 0 ? `blur(${obj.blur}px)` : "none",
-            border: "1px solid rgba(255,255,255,0.2)",
-            backdropFilter: "blur(8px)",
-            boxShadow: "none",
-            transition: "opacity 2s ease-in-out",
+            border: obj.border,
+            backdropFilter: obj.width > 20 ? "blur(4px)" : "none",
+            boxShadow: obj.boxShadow,
+            willChange: "transform, opacity",
           }}
         />
       ))}
