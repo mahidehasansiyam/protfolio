@@ -86,7 +86,7 @@ export default function Hero() {
           </div>
 
           <ScrollReveal delay={1} animation="fade-up">
-            <p className="text-gray-500 dark:text-gray-400 text-xl max-w-lg leading-relaxed">
+            <p className="text-gray-500 dark:text-gray-400 text-sm max-w-lg leading-relaxed">
               A web developer who's passionate about performance, security, and great user experience. From concept to clean code.
             </p>
           </ScrollReveal>
@@ -95,9 +95,9 @@ export default function Hero() {
             <Magnetic>
               <a
                 className="px-10 py-5 bg-brand-green text-black font-bold rounded-full hover:shadow-[0_0_30px_rgba(76,175,80,0.4)] transition-all duration-300"
-                href="#"
+                href="#contact"
               >
-                View Portfolio
+                Hire Me
               </a>
             </Magnetic>
 
@@ -136,7 +136,7 @@ export default function Hero() {
               <div className="w-full h-full rounded-full overflow-hidden border-[6px] border-white/5 relative animate-morph shadow-[0_0_50px_rgba(76,175,80,0.2)]">
                 <Image
                   src="/photo.jpeg"
-                  alt="Mahedi Hasan Siyam Portrait"
+                  alt="Mahide Hasan Siyam Portrait"
                   fill
                   className="object-cover object-top scale-110"
                   priority
@@ -153,11 +153,11 @@ export default function Hero() {
               initial={{ x: -50, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.8, duration: 1 }}
-              className="absolute top-[20%] -left-16 z-20"
+              className="absolute top-[20%] -left-16 z-20 hidden lg:block"
             >
               <FloatingCard
                 icon={<BriefcaseIcon />}
-                value="3"
+                value="2+"
                 label="Year of Experience"
                 className="bg-black/60 border-white/10 backdrop-blur-xl"
               />
@@ -168,7 +168,7 @@ export default function Hero() {
               initial={{ x: 50, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 1.0, duration: 1 }}
-              className="absolute -top-4 -right-12 z-20"
+              className="absolute -top-4 -right-12 z-20 hidden lg:block"
             >
               <FloatingCard
                 icon={<TargetIcon />}
@@ -181,13 +181,13 @@ export default function Hero() {
             {/* 3. Projects */}
             <motion.div
               initial={{ y: 50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
+              animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 1.2, duration: 1 }}
-              className="absolute bottom-4 left-1/4 z-20"
+              className="absolute bottom-4 left-1/4 z-20 hidden lg:block"
             >
               <FloatingCard
                 icon={<RocketIcon />}
-                value="150"
+                value="10+"
                 label="Finished Projects"
                 className="bg-black/60 border-white/10 backdrop-blur-xl"
               />

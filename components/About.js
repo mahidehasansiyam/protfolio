@@ -8,6 +8,15 @@ export default function About() {
   return (
     <section id="about" className="py-32 px-6 md:px-12 bg-brand-bg relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
+        {/* Section Label */}
+        <ScrollReveal animation="fade-up">
+          <div className="text-brand-green font-mono text-xs font-bold tracking-[0.3em] uppercase mb-16 flex items-center gap-4">
+            <span>01</span>
+            <span className="w-8 h-px bg-brand-green/30"></span>
+            <span>ABOUT ME</span>
+          </div>
+        </ScrollReveal>
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           
           {/* Left: Image */}
@@ -16,7 +25,7 @@ export default function About() {
               <div className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden border border-white/10 group">
                 <Image
                   src="/photo.jpeg"
-                  alt="MK Khalid Mahamud"
+                  alt="Mahide Hasan Siyam"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />

@@ -50,6 +50,14 @@ export default function Portfolio() {
   return (
     <section id="portfolio" className="py-32 px-6 md:px-12 bg-brand-bg relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
+        {/* Section Label */}
+        <ScrollReveal animation="fade-up">
+          <div className="text-brand-green font-mono text-xs font-bold tracking-[0.3em] uppercase mb-16 flex items-center gap-4">
+            <span>05</span>
+            <span className="w-8 h-px bg-brand-green/30"></span>
+            <span>SELECTED WORKS</span>
+          </div>
+        </ScrollReveal>
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
           <ScrollReveal animation="fade-up">

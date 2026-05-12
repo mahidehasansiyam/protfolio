@@ -64,6 +64,14 @@ export default function Skills() {
   return (
     <section id="skills" className="py-32 px-6 md:px-12 bg-brand-bg relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
+        {/* Section Label */}
+        <ScrollReveal animation="fade-up">
+          <div className="text-brand-green font-mono text-xs font-bold tracking-[0.3em] uppercase mb-16 flex items-center gap-4">
+            <span>03</span>
+            <span className="w-8 h-px bg-brand-green/30"></span>
+            <span>TOOLKIT</span>
+          </div>
+        </ScrollReveal>
         {/* Header */}
         <div className="text-center mb-24">
           <ScrollReveal animation="fade-up">

@@ -32,7 +32,7 @@ const academicEducation = [
     )
   },
   {
-    year: "2018 — 2020",
+    year: "2010 — 2020",
     degree: "Secondary School Certificate (SSC)",
     institution: "Janata Adarsha Bidyapith",
     location: "Palash, Narsingdi",
@@ -53,6 +53,15 @@ export default function Education() {
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-green/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
       
       <div className="max-w-7xl mx-auto">
+        {/* Section Label */}
+        <ScrollReveal animation="fade-up">
+          <div className="text-brand-green font-mono text-xs font-bold tracking-[0.3em] uppercase mb-16 flex items-center gap-4">
+            <span>02</span>
+            <span className="w-8 h-px bg-brand-green/30"></span>
+            <span>EDUCATION</span>
+          </div>
+        </ScrollReveal>
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           {/* Section Header */}
           <div className="lg:col-span-4 relative">
@@ -69,7 +78,7 @@ export default function Education() {
                 <p className="text-gray-500 dark:text-gray-400 text-lg leading-relaxed max-w-sm">
                   My formal education at prestigious institutions in Bangladesh has provided me with a strong analytical foundation.
                 </p>
-                
+
                 <div className="mt-12 hidden lg:block">
                   <Magnetic>
                     <a href="#contact" className="group flex items-center gap-4 text-foreground font-semibold">
@@ -89,15 +98,15 @@ export default function Education() {
           {/* Education List */}
           <div className="lg:col-span-8 space-y-4">
             {academicEducation.map((item, idx) => (
-              <ScrollReveal 
-                key={idx} 
-                animation="fade-up" 
+              <ScrollReveal
+                key={idx}
+                animation="fade-up"
                 delay={idx * 0.1}
               >
                 <div className="group relative bg-card-bg border border-border/50 hover:border-brand-green/30 rounded-[2.5rem] p-8 md:p-10 transition-all duration-700 hover:shadow-card">
                   {/* Hover Accent */}
                   <div className="absolute top-0 right-0 w-32 h-32 bg-brand-green/5 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-                  
+
                   <div className="flex flex-col md:flex-row gap-8 items-start relative z-10">
                     {/* Icon & Year */}
                     <div className="flex flex-col items-center gap-4">
@@ -124,7 +133,7 @@ export default function Education() {
                           </span>
                         </div>
                       </div>
-                      
+
                       <p className="text-gray-500 dark:text-gray-400 text-lg leading-relaxed mb-6 max-w-2xl">
                         {item.description}
                       </p>

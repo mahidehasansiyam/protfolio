@@ -8,10 +8,10 @@ import ScrollReveal from "./animations/ScrollReveal";
 gsap.registerPlugin(ScrollTrigger);
 
 const stats = [
-  { value: 8, label: "Years Experience", suffix: "+" },
-  { value: 120, label: "Projects Completed", suffix: "" },
+  { value: 2, label: "Years Experience", suffix: "+" },
+  { value: 10, label: "Projects Completed", suffix: "+" },
   { value: 50, label: "Happy Clients", suffix: "+" },
-  { value: 15, label: "Awards Won", suffix: "" },
+  { value: 120, label: "Problem Solving", suffix: "+" },
 ];
 
 /**

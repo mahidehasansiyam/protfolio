@@ -56,7 +56,7 @@ export default function Contact() {
           <div className="text-brand-green font-mono text-xs font-bold tracking-[0.3em] uppercase mb-16 flex items-center gap-4">
             <span>06</span>
             <span className="w-8 h-px bg-brand-green/30"></span>
-            <span>CONTACT</span>
+            <span>CONTACT WITH ME</span>
           </div>
         </ScrollReveal>
 
