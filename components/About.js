@@ -22,7 +22,7 @@ export default function About() {
           {/* Left: Image */}
           <div className="lg:col-span-5 relative">
             <ScrollReveal animation="fade-right">
-              <div className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden border border-white/10 group">
+              <div className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden border border-white/10 group shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8)] hover:shadow-[0_0_50px_rgba(76,175,80,0.3)] transition-all duration-700">
                 <Image
                   src="/photo.jpeg"
                   alt="Mahide Hasan Siyam"
@@ -59,12 +59,12 @@ export default function About() {
 
               {/* Stats Cards */}
               <div className="flex flex-wrap gap-6">
-                <div className="flex-1 min-w-[200px] p-8 rounded-3xl bg-card-bg border border-border/50 hover:border-brand-green/30 transition-all duration-500 group">
+                <div className="flex-1 min-w-[200px] p-8 rounded-3xl bg-card-bg border border-border/50 hover:border-brand-green/30 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.8)] hover:shadow-[0_0_40px_rgba(76,175,80,0.2)] transition-all duration-500 group">
                   <div className="text-4xl font-black text-foreground mb-2 tracking-tighter group-hover:text-brand-green transition-colors">2+</div>
                   <div className="text-[10px] font-bold text-gray-500 tracking-[0.2em] uppercase">Years Experience</div>
                 </div>
                 
-                <div className="flex-1 min-w-[200px] p-8 rounded-3xl bg-card-bg border border-border/50 hover:border-brand-green/30 transition-all duration-500 group">
+                <div className="flex-1 min-w-[200px] p-8 rounded-3xl bg-card-bg border border-border/50 hover:border-brand-green/30 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.8)] hover:shadow-[0_0_40px_rgba(76,175,80,0.2)] transition-all duration-500 group">
                   <div className="text-4xl font-black text-foreground mb-2 tracking-tighter group-hover:text-brand-green transition-colors">10+</div>
                   <div className="text-[10px] font-bold text-gray-500 tracking-[0.2em] uppercase">Projects Created</div>
                 </div>

@@ -51,7 +51,7 @@ export default function Education() {
     <section id="education" className="py-32 px-6 md:px-12 bg-brand-bg relative overflow-hidden">
       {/* Background Decorative Element */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-green/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
-      
+
       <div className="max-w-7xl mx-auto">
         {/* Section Label */}
         <ScrollReveal animation="fade-up">
@@ -103,14 +103,14 @@ export default function Education() {
                 animation="fade-up"
                 delay={idx * 0.1}
               >
-                <div className="group relative bg-card-bg border border-border/50 hover:border-brand-green/30 rounded-[2.5rem] p-8 md:p-10 transition-all duration-700 hover:shadow-card">
+                <div className="group relative bg-card-bg border border-border/50 hover:border-brand-green/30 rounded-[2.5rem] p-8 md:p-10 transition-all duration-700 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.8)] hover:shadow-[0_0_50px_rgba(76,175,80,0.25)]">
                   {/* Hover Accent */}
                   <div className="absolute top-0 right-0 w-32 h-32 bg-brand-green/5 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
 
-                  <div className="flex flex-col md:flex-row gap-8 items-start relative z-10">
+                  <div className="flex flex-col md:flex-row gap-8 items-start relative z-10 ">
                     {/* Icon & Year */}
                     <div className="flex flex-col items-center gap-4">
-                      <div className="w-16 h-16 rounded-2xl bg-brand-bg border border-border flex items-center justify-center text-brand-green group-hover:bg-brand-green group-hover:text-black transition-all duration-500 shadow-sm">
+                      <div className="w-16 h-16 rounded-2xl bg-brand-bg border border-border flex items-center justify-center text-brand-green group-hover:bg-brand-green group-hover:text-black transition-all duration-500 shadow-[0_10px_20px_-5px_rgba(0,0,0,0.6)] group-hover:shadow-[0_0_25px_rgba(76,175,80,0.4)]">
                         {item.icon}
                       </div>
                       <div className="px-4 py-1.5 rounded-full bg-brand-green/10 text-brand-green text-xs font-bold font-mono tracking-tighter">

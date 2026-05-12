@@ -93,14 +93,14 @@ export default function Skills() {
               delay={idx * 0.1}
             >
               <TiltCard className="h-full">
-                <div className="group relative h-full bg-card-bg border border-border/50 hover:border-brand-green/30 rounded-3xl p-8 transition-all duration-500 hover:shadow-card overflow-hidden">
+                <div className="group relative h-full bg-card-bg border border-border/50 hover:border-brand-green/30 rounded-3xl p-8 transition-all duration-500 shadow-[0_20px_40px_-12px_rgba(0,0,0,0.8)] hover:shadow-[0_0_40px_rgba(76,175,80,0.25)] overflow-hidden">
                   {/* Background Glow */}
                   <div className="absolute top-0 right-0 w-24 h-24 bg-brand-green/5 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
 
                   <div className="relative z-10">
                     <div 
                       ref={el => iconRefs.current[idx] = el}
-                      className="w-12 h-12 rounded-xl bg-brand-bg border border-border flex items-center justify-center text-brand-green group-hover:bg-brand-green group-hover:text-black transition-all duration-500 mb-8 shadow-sm"
+                      className="w-12 h-12 rounded-xl bg-brand-bg border border-border flex items-center justify-center text-brand-green group-hover:bg-brand-green group-hover:text-black transition-all duration-500 mb-8 shadow-[0_5px_15px_rgba(0,0,0,0.5)] group-hover:shadow-[0_0_20px_rgba(76,175,80,0.4)]"
                     >
                       {category.icon}
                     </div>

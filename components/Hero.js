@@ -94,7 +94,7 @@ export default function Hero() {
           <ScrollReveal delay={1.2} animation="fade-up" className="flex flex-wrap items-center gap-6 pt-4">
             <Magnetic>
               <a
-                className="px-10 py-5 bg-brand-green text-black font-bold rounded-full hover:shadow-[0_0_30px_rgba(76,175,80,0.4)] transition-all duration-300"
+                className="px-10 py-5 bg-brand-green text-black font-bold rounded-full shadow-[0_20px_40px_-10px_rgba(0,0,0,0.5)] hover:shadow-[0_0_50px_rgba(76,175,80,0.6)] transition-all duration-300"
                 href="#contact"
               >
                 Hire Me
@@ -104,7 +104,7 @@ export default function Hero() {
             <div className="flex items-center gap-4">
               <Magnetic strength={0.4}>
                 <a
-                  className="w-14 h-14 flex items-center justify-center rounded-full bg-card-bg border border-border text-foreground hover:bg-white/10 transition-colors"
+                  className="w-14 h-14 flex items-center justify-center rounded-full bg-card-bg border border-border text-foreground hover:bg-white/10 shadow-[0_10px_25px_-5px_rgba(0,0,0,0.6)] hover:shadow-[0_0_30px_rgba(76,175,80,0.3)] transition-all"
                   href="https://www.linkedin.com/in/mahedi-hasan-siyam/"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -114,7 +114,7 @@ export default function Hero() {
               </Magnetic>
               <Magnetic strength={0.4}>
                 <a
-                  className="w-14 h-14 flex items-center justify-center rounded-full bg-card-bg border border-border text-foreground hover:bg-white/10 transition-colors"
+                  className="w-14 h-14 flex items-center justify-center rounded-full bg-card-bg border border-border text-foreground hover:bg-white/10 shadow-[0_10px_25px_-5px_rgba(0,0,0,0.6)] hover:shadow-[0_0_30px_rgba(76,175,80,0.3)] transition-all"
                   href="https://github.com/mahidehasansiyam"
                   target="_blank"
                   rel="noopener noreferrer"

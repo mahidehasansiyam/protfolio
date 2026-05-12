@@ -110,7 +110,7 @@ export default function Navbar() {
             
             <Magnetic strength={0.3}>
               <a 
-                className="hidden sm:flex px-6 py-2.5 bg-brand-green text-black font-bold rounded-full text-xs uppercase tracking-widest hover:shadow-[0_0_20px_rgba(76,175,80,0.4)] transition-all duration-500 min-w-[140px] items-center justify-center" 
+                className="hidden sm:flex px-6 py-2.5 bg-brand-green text-black font-bold rounded-full text-xs uppercase tracking-widest shadow-[0_10px_20px_-5px_rgba(76,175,80,0.4)] hover:shadow-[0_0_30px_rgba(76,175,80,0.6)] transition-all duration-500 min-w-[140px] items-center justify-center" 
                 href="#contact"
               >
                 <AnimatePresence mode="wait">
