@@ -129,7 +129,7 @@ export default function Hero() {
         {/* Right Imagery */}
         <motion.div
           style={{ y: yMockup }}
-          className="relative flex justify-center lg:justify-end"
+          className="relative flex justify-center lg:justify-end  min-h-[80vh] md:min-h-screen"
         >
           <div className="relative w-[400px] h-[400px] md:w-[500px] md:h-[500px]">
             {/* Ambient Glow behind image */}
@@ -148,7 +148,7 @@ export default function Hero() {
                   src="/photo.jpeg"
                   alt="Mahide Hasan Siyam Portrait"
                   fill
-                  className="object-cover object-top scale-110"
+                  className="object-cover object-top scale-100"
                   priority
                 />
               </div>
