@@ -80,7 +80,7 @@ export default function Contact() {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex items-center justify-between p-6 rounded-2xl bg-card-bg border border-border/50 hover:border-brand-green/30 shadow-[0_15px_40px_rgba(0,0,0,0.4)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.6)] transition-all duration-500"
+                      className="group flex items-center justify-between p-6 rounded-2xl bg-card-bg border border-border/50 hover:border-brand-green/40 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.8)] hover:shadow-[0_0_40px_rgba(76,175,80,0.3)] transition-all duration-500"
                     >
                       <div className="flex items-center gap-6">
                         <div className="w-12 h-12 rounded-xl bg-brand-bg border border-border flex items-center justify-center text-brand-green group-hover:bg-brand-green group-hover:text-black transition-all duration-500">
@@ -106,7 +106,7 @@ export default function Contact() {
           {/* Right Form */}
           <div className="lg:col-span-7">
             <ScrollReveal animation="fade-up" delay={0.2}>
-              <div className="bg-card-bg border border-border/50 rounded-[2.5rem] p-8 md:p-12 relative overflow-hidden shadow-[0_30px_100px_rgba(0,0,0,0.6)]">
+              <div className="bg-card-bg border border-border/50 rounded-[2.5rem] p-8 md:p-12 relative overflow-hidden shadow-[0_50px_120px_-20px_rgba(0,0,0,1)] hover:shadow-[0_0_100px_rgba(76,175,80,0.15)] transition-shadow duration-700">
                 {/* Background Accent - reduced on mobile */}
                 <div className="absolute top-0 right-0 w-64 h-64 bg-brand-green/[0.02] md:bg-brand-green/5 blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
 
@@ -173,7 +173,7 @@ export default function Contact() {
                   </div>
 
                   <Magnetic strength={0.2}>
-                    <button type="submit" className="px-10 py-5 bg-[#228B22] text-black font-bold rounded-full hover:shadow-[0_0_30px_rgba(232,200,114,0.4)] transition-all duration-300 flex items-center gap-3 group">
+                    <button type="submit" className="px-10 py-5 bg-brand-green text-black font-bold rounded-full shadow-[0_20px_40px_-10px_rgba(0,0,0,0.5)] hover:shadow-[0_0_50px_rgba(76,175,80,0.6)] transition-all duration-300 flex items-center gap-3 group">
                       <svg className="w-5 h-5 group-hover:rotate-12 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                       </svg>
