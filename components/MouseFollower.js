@@ -1,11 +1,10 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
 /**
- * Premium MouseFollower with a Dot Cluster, Outline Ring, and smooth glow.
- * Reverted to the preferred "Dot + Outline + Trails" style with a dynamic swarm.
+ * Premium MouseFollower with a dynamic "VIEW" mode for project cards.
  */
 export default function MouseFollower() {
   const dotRef = useRef(null);
@@ -13,6 +12,7 @@ export default function MouseFollower() {
   const glowRef = useRef(null);
   const clusterRef = useRef([]);
   const trailsRef = useRef([]);
+  const [isViewMode, setIsViewMode] = useState(false);
 
   useEffect(() => {
     const dot = dotRef.current;
@@ -23,80 +23,54 @@ export default function MouseFollower() {
 
     if (!dot || !ring || !glow) return;
 
-    // Initial positioning
     gsap.set([dot, ring, glow, ...cluster, ...trails], { xPercent: -50, yPercent: -50 });
-
-    // Internal "swarm" animation for the cluster (The previous style they liked)
-    cluster.forEach((dotItem, i) => {
-      gsap.to(dotItem, {
-        x: "+=" + (Math.random() * 40 - 20),
-        y: "+=" + (Math.random() * 40 - 20),
-        duration: 1.5 + Math.random(),
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-      });
-    });
 
     const handleMouseMove = (e) => {
       const { clientX, clientY } = e;
 
-      // 0. Global Glow (Very smooth)
-      gsap.to(glow, {
-        x: clientX,
-        y: clientY,
-        duration: 1.5,
-        ease: "power2.out",
-      });
-
-      // 1. Main Dot & Ring follow instantly
-      gsap.to([dot, ring], {
-        x: clientX,
-        y: clientY,
-        duration: 0.1,
-        ease: "power2.out",
-      });
-
-      // 2. Cluster Swarm follows with a tighter, more responsive delay
+      gsap.to(glow, { x: clientX, y: clientY, duration: 1.5, ease: "power2.out" });
+      gsap.to(dot, { x: clientX, y: clientY, duration: 0.1, ease: "power2.out" });
+      gsap.to(ring, { x: clientX, y: clientY, duration: 0.4, ease: "power3.out" });
+      
       cluster.forEach((dotItem, i) => {
-        gsap.to(dotItem, {
-          x: clientX,
-          y: clientY,
-          duration: 0.5 + i * .5,
-          ease: "power2.out",
-        });
+        gsap.to(dotItem, { x: clientX, y: clientY, duration: 0.5 + i * .5, ease: "power2.out" });
       });
 
-      // 3. Trails follow with a close, snappy delay
       trails.forEach((trail, index) => {
-        gsap.to(trail, {
-          x: clientX,
-          y: clientY,
-          duration: .6 + index * .5,
-          ease: "power2.out",
-        });
+        gsap.to(trail, { x: clientX, y: clientY, duration: .6 + index * .5, ease: "power2.out" });
       });
     };
 
+    const handleCursorChange = (e) => {
+      const mode = e.detail;
+      setIsViewMode(mode === "view");
+      
+      if (mode === "view") {
+        gsap.to(ring, { scale: 2.5, backgroundColor: "rgba(76, 175, 80, 0.1)", duration: 0.4 });
+        gsap.to(dot, { scale: 0, opacity: 0, duration: 0.3 });
+      } else {
+        gsap.to(ring, { scale: 1, backgroundColor: "transparent", duration: 0.4 });
+        gsap.to(dot, { scale: 1, opacity: 1, duration: 0.3 });
+      }
+    };
+
     window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("cursorChange", handleCursorChange);
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("cursorChange", handleCursorChange);
     };
   }, []);
 
   return (
     <>
-      {/* Main Glow Background */}
       <div
         ref={glowRef}
-        className="fixed top-0 left-0 w-[600px] h-[600px] pointer-events-none z-[9997] opacity-20 mix-blend-screen overflow-hidden"
-        style={{
-          background: "radial-gradient(circle, rgba(76, 175, 80, 0.15) 0%, transparent 70%)",
-        }}
+        className="fixed top-0 left-0 w-[600px] h-[600px] pointer-events-none z-[9997] opacity-20 mix-blend-screen"
+        style={{ background: "radial-gradient(circle, rgba(76, 175, 80, 0.15) 0%, transparent 70%)" }}
       />
 
-      {/* Cluster Dots (Swarm effect) */}
       {[...Array(6)].map((_, i) => (
         <div
           key={`cluster-${i}`}
@@ -105,7 +79,6 @@ export default function MouseFollower() {
         />
       ))}
 
-      {/* Trailing Small Circles */}
       {[...Array(3)].map((_, i) => (
         <div
           key={`trail-${i}`}
@@ -114,18 +87,19 @@ export default function MouseFollower() {
         />
       ))}
 
-      {/* Outline Ring */}
       <div
         ref={ringRef}
-        className="fixed top-0 left-0 w-10 h-10 border border-brand-green/50 rounded-full pointer-events-none z-[9999]"
-        style={{ willChange: "transform" }}
-      />
+        className="fixed top-0 left-0 w-10 h-10 border border-brand-green/50 rounded-full pointer-events-none z-[9999] flex items-center justify-center overflow-hidden"
+        style={{ transformOrigin: "center center" }}
+      >
+        {isViewMode && (
+          <span className="text-[6px] font-black tracking-widest text-brand-green animate-pulse">VIEW</span>
+        )}
+      </div>
 
-      {/* Core Dot */}
       <div
         ref={dotRef}
         className="fixed top-0 left-0 w-2.5 h-2.5 bg-brand-green rounded-full shadow-[0_0_15px_rgba(76,175,80,0.8)] pointer-events-none z-[10000]"
-        style={{ willChange: "transform" }}
       />
     </>
   );

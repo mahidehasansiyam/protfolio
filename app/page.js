@@ -9,6 +9,7 @@ import Expertise from "@/components/Expertise";
 import Portfolio from "@/components/Portfolio";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import BackToTop from "@/components/BackToTop";
 export default function Home() {
   return (
     <div className="min-h-screen bg-brand-bg text-white">
@@ -25,6 +26,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 }

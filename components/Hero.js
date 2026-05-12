@@ -103,8 +103,8 @@ export default function Hero() {
 
             <div className="flex items-center gap-4">
               <Magnetic strength={0.4}>
-                <a 
-                  className="w-14 h-14 flex items-center justify-center rounded-full bg-card-bg border border-border text-foreground hover:bg-white/10 transition-colors" 
+                <a
+                  className="w-14 h-14 flex items-center justify-center rounded-full bg-card-bg border border-border text-foreground hover:bg-white/10 transition-colors"
                   href="https://www.linkedin.com/in/mahedi-hasan-siyam/"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -113,8 +113,8 @@ export default function Hero() {
                 </a>
               </Magnetic>
               <Magnetic strength={0.4}>
-                <a 
-                  className="w-14 h-14 flex items-center justify-center rounded-full bg-card-bg border border-border text-foreground hover:bg-white/10 transition-colors" 
+                <a
+                  className="w-14 h-14 flex items-center justify-center rounded-full bg-card-bg border border-border text-foreground hover:bg-white/10 transition-colors"
                   href="https://github.com/mahidehasansiyam"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -167,7 +167,7 @@ export default function Hero() {
             >
               <FloatingCard
                 icon={<BriefcaseIcon />}
-                value="2+"
+                value="1+"
                 label="Year of Experience"
                 className="bg-black/60 border-white/10 backdrop-blur-xl"
               />
@@ -182,7 +182,7 @@ export default function Hero() {
             >
               <FloatingCard
                 icon={<TargetIcon />}
-                value="120"
+                value="70"
                 label="Problem Solving"
                 className="bg-black/60 border-white/10 backdrop-blur-xl"
               />
@@ -197,7 +197,7 @@ export default function Hero() {
             >
               <FloatingCard
                 icon={<RocketIcon />}
-                value="10+"
+                value="3+"
                 label="Finished Projects"
                 className="bg-black/60 border-white/10 backdrop-blur-xl"
               />
