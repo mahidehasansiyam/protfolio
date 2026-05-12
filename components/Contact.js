@@ -8,7 +8,7 @@ const contactLinks = [
   {
     label: "EMAIL",
     value: "mahidehasansiyam123@gmail.com",
-    href: "mailto:mahidehasansiyam123@gmail.com",
+    href: "https://mail.google.com/mail/?view=cm&fs=1&to=mahidehasansiyam123@gmail.com",
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -113,21 +113,49 @@ export default function Contact() {
                 <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Send me a message</h3>
                 <p className="text-gray-500 mb-12">Tell me about your project, timeline and goals.</p>
 
-                <form className="space-y-8 relative z-10">
+                <form
+                  className="space-y-8 relative z-10"
+                  onSubmit={(e) => {
+                    e.preventDefault();
+
+                    const formData = new FormData(e.target);
+
+                    const name = formData.get("name");
+                    const email = formData.get("email");
+                    const message = formData.get("message");
+
+                    const subject = encodeURIComponent(
+                      `Project Inquiry from ${name}`
+                    );
+
+                    const body = encodeURIComponent(
+                      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+                    );
+
+                    window.open(
+                      `https://mail.google.com/mail/?view=cm&fs=1&to=mahidehasansiyam123@gmail.com&su=${subject}&body=${body}`,
+                      "_blank"
+                    );
+                  }}
+                >
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="space-y-2">
                       <label className="text-[10px] font-bold text-gray-500 tracking-[0.2em] uppercase ml-4">Your Name</label>
                       <input
+                        name="name"
                         type="text"
-                        placeholder="MK Khalid"
+                        required
+                        placeholder="Mahide Hasan Siyam"
                         className="w-full bg-brand-bg border border-border/50 rounded-2xl px-6 py-4 text-foreground focus:outline-none focus:border-brand-green/50 transition-colors"
                       />
                     </div>
                     <div className="space-y-2">
                       <label className="text-[10px] font-bold text-gray-500 tracking-[0.2em] uppercase ml-4">Email Address</label>
                       <input
+                        name="email"
                         type="email"
-                        placeholder="mkkhalidmahamud@gmail.com"
+                        required
+                        placeholder="mahidehasansiyam123@gmail.com"
                         className="w-full bg-brand-bg border border-border/50 rounded-2xl px-6 py-4 text-foreground focus:outline-none focus:border-brand-green/50 transition-colors"
                       />
                     </div>
@@ -136,6 +164,8 @@ export default function Contact() {
                   <div className="space-y-2">
                     <label className="text-[10px] font-bold text-gray-500 tracking-[0.2em] uppercase ml-4">Message</label>
                     <textarea
+                      name="message"
+                      required
                       placeholder="I'm building..."
                       rows="6"
                       className="w-full bg-brand-bg border border-border/50 rounded-2xl px-6 py-4 text-foreground focus:outline-none focus:border-brand-green/50 transition-colors resize-none"
@@ -143,7 +173,7 @@ export default function Contact() {
                   </div>
 
                   <Magnetic strength={0.2}>
-                    <button className="px-10 py-5 bg-[#228B22] text-black font-bold rounded-full hover:shadow-[0_0_30px_rgba(232,200,114,0.4)] transition-all duration-300 flex items-center gap-3 group">
+                    <button type="submit" className="px-10 py-5 bg-[#228B22] text-black font-bold rounded-full hover:shadow-[0_0_30px_rgba(232,200,114,0.4)] transition-all duration-300 flex items-center gap-3 group">
                       <svg className="w-5 h-5 group-hover:rotate-12 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                       </svg>
