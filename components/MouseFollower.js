@@ -10,7 +10,6 @@ import { gsap } from "gsap";
 export default function MouseFollower() {
   const dotRef = useRef(null);
   const ringRef = useRef(null);
-  const glowRef = useRef(null);
   const clusterRef = useRef([]);
   const trailsRef = useRef([]);
   const [isViewMode, setIsViewMode] = useState(false);
@@ -18,14 +17,13 @@ export default function MouseFollower() {
   useEffect(() => {
     const dot = dotRef.current;
     const ring = ringRef.current;
-    const glow = glowRef.current;
     const cluster = clusterRef.current;
     const trails = trailsRef.current;
 
-    if (!dot || !ring || !glow) return;
+    if (!dot || !ring) return;
 
     // Initial positioning off-screen
-    gsap.set([dot, ring, glow, ...cluster, ...trails], { 
+    gsap.set([dot, ring, ...cluster, ...trails], { 
       xPercent: -50, 
       yPercent: -50,
       x: -100,
@@ -34,7 +32,6 @@ export default function MouseFollower() {
 
     const moveFollower = (clientX, clientY) => {
       // Use quickSetter or direct to. for smooth animation
-      gsap.to(glow, { x: clientX, y: clientY, duration: 1.5, ease: "power2.out" });
       gsap.to(dot, { x: clientX, y: clientY, duration: 0.1, ease: "power2.out" });
       gsap.to(ring, { x: clientX, y: clientY, duration: 0.4, ease: "power3.out" });
       
@@ -77,12 +74,6 @@ export default function MouseFollower() {
 
   return (
     <>
-      <div
-        ref={glowRef}
-        className="fixed top-0 left-0 w-[600px] h-[600px] pointer-events-none z-[9997] opacity-20 mix-blend-screen"
-        style={{ background: "radial-gradient(circle, rgba(76, 175, 80, 0.15) 0%, transparent 70%)" }}
-      />
-
       {[...Array(6)].map((_, i) => (
         <div
           key={`cluster-${i}`}
