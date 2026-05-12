@@ -3,7 +3,10 @@ import Hero from "@/components/Hero";
 import LogoBar from "@/components/LogoBar";
 import Stats from "@/components/Stats";
 import Education from "@/components/Education";
+import Skills from "@/components/Skills";
+import Expertise from "@/components/Expertise";
 import Portfolio from "@/components/Portfolio";
+import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 export default function Home() {
   return (
@@ -14,7 +17,10 @@ export default function Home() {
         <LogoBar />
         <Stats />
         <Education />
+        <Skills />
+        <Expertise />
         <Portfolio />
+        <Contact />
       </main>
       <Footer />
     </div>

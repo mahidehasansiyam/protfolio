@@ -1,7 +1,10 @@
 "use client";
 
-import ScrollReveal from "./animations/ScrollReveal";
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import { gsap } from "gsap";
+import ScrollReveal from "./animations/ScrollReveal";
+import TiltCard from "./animations/TiltCard";
 
 const skillCategories = [
   {
@@ -43,6 +46,21 @@ const skillCategories = [
 ];
 
 export default function Skills() {
+  const iconRefs = useRef([]);
+
+  useEffect(() => {
+    iconRefs.current.forEach((icon, i) => {
+      gsap.to(icon, {
+        y: -8,
+        duration: 2,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut",
+        delay: i * 0.3
+      });
+    });
+  }, []);
+
   return (
     <section id="skills" className="py-32 px-6 md:px-12 bg-brand-bg relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
@@ -66,29 +84,41 @@ export default function Skills() {
               animation="fade-up" 
               delay={idx * 0.1}
             >
-              <div className="group relative h-full bg-card-bg border border-border/50 hover:border-brand-green/30 rounded-3xl p-8 transition-all duration-500 hover:shadow-card overflow-hidden">
-                {/* Background Glow */}
-                <div className="absolute top-0 right-0 w-24 h-24 bg-brand-green/5 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <TiltCard className="h-full">
+                <div className="group relative h-full bg-card-bg border border-border/50 hover:border-brand-green/30 rounded-3xl p-8 transition-all duration-500 hover:shadow-card overflow-hidden">
+                  {/* Background Glow */}
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-brand-green/5 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
 
-                <div className="relative z-10">
-                  <div className="w-12 h-12 rounded-xl bg-brand-bg border border-border flex items-center justify-center text-brand-green group-hover:bg-brand-green group-hover:text-black transition-all duration-500 mb-8">
-                    {category.icon}
+                  <div className="relative z-10">
+                    <div 
+                      ref={el => iconRefs.current[idx] = el}
+                      className="w-12 h-12 rounded-xl bg-brand-bg border border-border flex items-center justify-center text-brand-green group-hover:bg-brand-green group-hover:text-black transition-all duration-500 mb-8 shadow-sm"
+                    >
+                      {category.icon}
+                    </div>
+
+                    <h3 className="text-2xl font-bold text-foreground mb-8 group-hover:text-brand-green transition-colors">
+                      {category.title}
+                    </h3>
+
+                    <ul className="space-y-4">
+                      {category.skills.map((skill, sIdx) => (
+                        <motion.li 
+                          key={skill} 
+                          initial={{ opacity: 0, x: -10 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          transition={{ delay: (idx * 0.1) + (sIdx * 0.05) }}
+                          viewport={{ once: true }}
+                          className="flex items-center gap-3 text-gray-500 dark:text-gray-400 font-medium group/item"
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full bg-brand-green/40 group-hover/item:bg-brand-green transition-colors"></span>
+                          {skill}
+                        </motion.li>
+                      ))}
+                    </ul>
                   </div>
-
-                  <h3 className="text-2xl font-bold text-foreground mb-8 group-hover:text-brand-green transition-colors">
-                    {category.title}
-                  </h3>
-
-                  <ul className="space-y-4">
-                    {category.skills.map((skill) => (
-                      <li key={skill} className="flex items-center gap-3 text-gray-500 dark:text-gray-400 font-medium group/item">
-                        <span className="w-1.5 h-1.5 rounded-full bg-brand-green/40 group-hover/item:bg-brand-green transition-colors"></span>
-                        {skill}
-                      </li>
-                    ))}
-                  </ul>
                 </div>
-              </div>
+              </TiltCard>
             </ScrollReveal>
           ))}
         </div>
