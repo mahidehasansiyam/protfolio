@@ -36,10 +36,10 @@ export default function Navbar() {
   }, [lastScrollY]);
 
   const navLinks = [
-    { name: "Works", href: "#" },
-    { name: "About", href: "#" },
-    { name: "Testimonials", href: "#" },
-    { name: "Contact", href: "#" },
+    { name: "Works", href: "#portfolio" },
+    { name: "Education", href: "#education" },
+    { name: "About", href: "#about" },
+    { name: "Contact", href: "#contact" },
   ];
 
   return (
@@ -56,7 +56,7 @@ export default function Navbar() {
         {/* Logo */}
         <Magnetic>
           <div className="text-2xl font-bold tracking-tight text-foreground cursor-pointer">
-            Gilberto<span className="text-brand-green">.</span>
+            Mahedi<span className="text-brand-green">.</span>
           </div>
         </Magnetic>
 

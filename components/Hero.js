@@ -136,7 +136,7 @@ export default function Hero() {
               <div className="w-full h-full rounded-full overflow-hidden border-[6px] border-white/5 relative animate-morph shadow-[0_0_50px_rgba(76,175,80,0.2)]">
                 <Image
                   src="/photo.jpeg"
-                  alt="Gilberto Portrait"
+                  alt="Mahedi Hasan Siyam Portrait"
                   fill
                   className="object-cover object-top scale-110"
                   priority

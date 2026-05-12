@@ -48,7 +48,7 @@ export default function Portfolio() {
     : projects.filter(p => p.category === filter);
 
   return (
-    <section className="py-32 px-6 md:px-12 bg-brand-bg relative overflow-hidden">
+    <section id="portfolio" className="py-32 px-6 md:px-12 bg-brand-bg relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
