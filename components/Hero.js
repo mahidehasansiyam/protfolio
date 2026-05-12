@@ -129,7 +129,7 @@ export default function Hero() {
         {/* Right Imagery */}
         <motion.div
           style={{ y: yMockup }}
-          className="relative flex justify-center lg:justify-end  min-h-[80vh] md:min-h-screen"
+          className="relative flex justify-center lg:justify-end "
         >
           <div className="relative w-[400px] h-[400px] md:w-[500px] md:h-[500px]">
             {/* Ambient Glow behind image */}
