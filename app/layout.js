@@ -3,6 +3,7 @@ import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import ScrollProgress from "@/components/ScrollProgress";
 import BackgroundObjects from "@/components/BackgroundObjects";
+import MouseFollower from "@/components/MouseFollower";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -30,6 +31,7 @@ export default function RootLayout({ children }) {
         <BackgroundObjects />
         
         {/* Interaction Elements */}
+        <MouseFollower />
 
         <SmoothScroll>
           {children}

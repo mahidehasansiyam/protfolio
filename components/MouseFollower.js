@@ -4,7 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
 /**
- * Premium MouseFollower with a dynamic "VIEW" mode for project cards.
+ * Premium MouseFollower with unified Pointer support (Mouse, Touch, Pen).
+ * Uses pointermove for maximum compatibility across all devices and responsive modes.
  */
 export default function MouseFollower() {
   const dotRef = useRef(null);
@@ -23,11 +24,16 @@ export default function MouseFollower() {
 
     if (!dot || !ring || !glow) return;
 
-    gsap.set([dot, ring, glow, ...cluster, ...trails], { xPercent: -50, yPercent: -50 });
+    // Initial positioning off-screen
+    gsap.set([dot, ring, glow, ...cluster, ...trails], { 
+      xPercent: -50, 
+      yPercent: -50,
+      x: -100,
+      y: -100
+    });
 
-    const handleMouseMove = (e) => {
-      const { clientX, clientY } = e;
-
+    const moveFollower = (clientX, clientY) => {
+      // Use quickSetter or direct to. for smooth animation
       gsap.to(glow, { x: clientX, y: clientY, duration: 1.5, ease: "power2.out" });
       gsap.to(dot, { x: clientX, y: clientY, duration: 0.1, ease: "power2.out" });
       gsap.to(ring, { x: clientX, y: clientY, duration: 0.4, ease: "power3.out" });
@@ -39,6 +45,11 @@ export default function MouseFollower() {
       trails.forEach((trail, index) => {
         gsap.to(trail, { x: clientX, y: clientY, duration: .6 + index * .5, ease: "power2.out" });
       });
+    };
+
+    // Unified pointer listener for ALL devices (Mouse/Touch/Pen)
+    const handlePointerMove = (e) => {
+      moveFollower(e.clientX, e.clientY);
     };
 
     const handleCursorChange = (e) => {
@@ -54,11 +65,12 @@ export default function MouseFollower() {
       }
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
+    // Use pointermove which is superior for responsive/simulated environments
+    window.addEventListener("pointermove", handlePointerMove);
     window.addEventListener("cursorChange", handleCursorChange);
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("pointermove", handlePointerMove);
       window.removeEventListener("cursorChange", handleCursorChange);
     };
   }, []);
@@ -75,7 +87,7 @@ export default function MouseFollower() {
         <div
           key={`cluster-${i}`}
           ref={(el) => (clusterRef.current[i] = el)}
-          className="fixed top-0 left-0 w-1 h-1 rounded-full bg-brand-green/40 pointer-events-none z-[9998]"
+          className="fixed top-0 left-0 w-1 h-1 rounded-full bg-brand-green/30 md:bg-brand-green/40 pointer-events-none z-[9998]"
         />
       ))}
 
@@ -83,7 +95,7 @@ export default function MouseFollower() {
         <div
           key={`trail-${i}`}
           ref={(el) => (trailsRef.current[i] = el)}
-          className="fixed top-0 left-0 w-1 h-1 rounded-full bg-brand-green/20 pointer-events-none z-[9998]"
+          className="fixed top-0 left-0 w-1 h-1 rounded-full bg-brand-green/20 md:bg-brand-green/20 pointer-events-none z-[9998]"
         />
       ))}
 

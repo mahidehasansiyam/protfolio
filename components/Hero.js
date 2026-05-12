@@ -67,9 +67,9 @@ export default function Hero() {
       {/* Subtle Background Elements */}
       <div className="absolute inset-0 dot-pattern opacity-10 pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full relative z-10">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-16 items-center w-full relative z-10">
         {/* Left Content */}
-        <div className="space-y-8">
+        <div className="space-y-4">
           <div className="space-y-4">
             <h1 className="text-5xl md:text-8xl font-black leading-[1.05] text-foreground tracking-tighter">
               <TextReveal text="Building Smart" className="block" />

@@ -107,8 +107,8 @@ export default function Contact() {
           <div className="lg:col-span-7">
             <ScrollReveal animation="fade-up" delay={0.2}>
               <div className="bg-card-bg border border-border/50 rounded-[2.5rem] p-8 md:p-12 relative overflow-hidden">
-                {/* Background Accent */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-brand-green/5 blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
+                {/* Background Accent - reduced on mobile */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-brand-green/[0.02] md:bg-brand-green/5 blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
 
                 <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Send me a message</h3>
                 <p className="text-gray-500 mb-12">Tell me about your project, timeline and goals.</p>
