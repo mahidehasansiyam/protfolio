@@ -34,7 +34,7 @@ export default function Navbar() {
           }
         }
       }
-      
+
       // Special case for top of page
       if (currentScrollY < 100) setActiveSection("");
     };
@@ -45,9 +45,9 @@ export default function Navbar() {
 
   const navLinks = [
     { name: "About", href: "#about", id: "about" },
+    { name: "Education", href: "#education", id: "education" },
     { name: "Skills", href: "#skills", id: "skills" },
     { name: "Expertise", href: "#expertise", id: "expertise" },
-    { name: "Education", href: "#education", id: "education" },
     { name: "Works", href: "#portfolio", id: "portfolio" },
     { name: "Contact", href: "#contact", id: "contact" },
   ];
@@ -92,7 +92,7 @@ export default function Navbar() {
               >
                 {link.name}
                 {/* Underline for active/hover state */}
-                <motion.span 
+                <motion.span
                   className={cn(
                     "absolute bottom-0 left-4 right-4 h-[2px] bg-brand-green origin-left transition-transform duration-300",
                     activeSection === link.id ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
@@ -107,16 +107,16 @@ export default function Navbar() {
         <div className="flex items-center space-x-4">
           <ThemeToggle />
           <Magnetic strength={0.2}>
-            <a 
-              className="hidden sm:block px-6 py-2.5 border border-border rounded-full text-xs font-bold uppercase tracking-widest text-foreground hover:bg-card-bg transition-all duration-300 backdrop-blur-sm" 
+            <a
+              className="hidden sm:block px-6 py-2.5 border border-border rounded-full text-xs font-bold uppercase tracking-widest text-foreground hover:bg-card-bg transition-all duration-300 backdrop-blur-sm"
               href="#contact"
             >
-              Resume
+              Hire Me
             </a>
           </Magnetic>
           <Magnetic strength={0.3}>
-            <a 
-              className="px-6 py-2.5 bg-brand-green text-black font-bold rounded-full text-xs uppercase tracking-widest hover:shadow-[0_0_20px_rgba(76,175,80,0.4)] transition-all duration-500 min-w-[140px] text-center" 
+            <a
+              className="px-6 py-2.5 bg-brand-green text-black font-bold rounded-full text-xs uppercase tracking-widest hover:shadow-[0_0_20px_rgba(76,175,80,0.4)] transition-all duration-500 min-w-[140px] text-center"
               href="#contact"
             >
               <AnimatePresence mode="wait">

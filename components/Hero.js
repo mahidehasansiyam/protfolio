@@ -86,7 +86,7 @@ export default function Hero() {
           </div>
 
           <ScrollReveal delay={1} animation="fade-up">
-            <p className="text-gray-500 dark:text-gray-400 text-lg md:text-xl max-w-lg leading-relaxed">
+            <p className="text-gray-500 dark:text-gray-400 text-xl max-w-lg leading-relaxed">
               A web developer who's passionate about performance, security, and great user experience. From concept to clean code.
             </p>
           </ScrollReveal>
@@ -124,9 +124,9 @@ export default function Hero() {
           <div className="relative w-[400px] h-[400px] md:w-[500px] md:h-[500px]">
             {/* Ambient Glow behind image */}
             <div className="absolute inset-0 bg-brand-green/20 blur-[100px] rounded-full animate-pulse-slow"></div>
-            
+
             {/* Circular Profile Container with Liquid Morphing Effect */}
-            <motion.div 
+            <motion.div
               ref={mockupRef}
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -142,7 +142,7 @@ export default function Hero() {
                   priority
                 />
               </div>
-              
+
               {/* Outer Liquid Ring */}
               <div className="absolute inset-0 border-2 border-brand-green/30 rounded-full animate-morph opacity-50 -z-10" style={{ animationDelay: '1s' }} />
             </motion.div>
@@ -155,10 +155,10 @@ export default function Hero() {
               transition={{ delay: 0.8, duration: 1 }}
               className="absolute top-[20%] -left-16 z-20"
             >
-              <FloatingCard 
-                icon={<BriefcaseIcon />} 
-                value="3" 
-                label="Year of Experience" 
+              <FloatingCard
+                icon={<BriefcaseIcon />}
+                value="3"
+                label="Year of Experience"
                 className="bg-black/60 border-white/10 backdrop-blur-xl"
               />
             </motion.div>
@@ -170,10 +170,10 @@ export default function Hero() {
               transition={{ delay: 1.0, duration: 1 }}
               className="absolute -top-4 -right-12 z-20"
             >
-              <FloatingCard 
-                icon={<TargetIcon />} 
-                value="120" 
-                label="Problem Solving" 
+              <FloatingCard
+                icon={<TargetIcon />}
+                value="120"
+                label="Problem Solving"
                 className="bg-black/60 border-white/10 backdrop-blur-xl"
               />
             </motion.div>
@@ -185,10 +185,10 @@ export default function Hero() {
               transition={{ delay: 1.2, duration: 1 }}
               className="absolute bottom-4 left-1/4 z-20"
             >
-              <FloatingCard 
-                icon={<RocketIcon />} 
-                value="150" 
-                label="Finished Projects" 
+              <FloatingCard
+                icon={<RocketIcon />}
+                value="150"
+                label="Finished Projects"
                 className="bg-black/60 border-white/10 backdrop-blur-xl"
               />
             </motion.div>
@@ -228,7 +228,7 @@ function FloatingCard({ icon, value, label, className }) {
   }, []);
 
   return (
-    <div 
+    <div
       ref={cardRef}
       className={cn(
         "flex items-center gap-4 px-5 py-4 rounded-2xl border shadow-2xl",
