@@ -4,7 +4,6 @@ import { useEffect, useRef } from "react";
 import Lenis from "lenis";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import MouseFollower from "./MouseFollower";
 
 // Register ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
@@ -54,7 +53,6 @@ export default function SmoothScroll({ children }) {
 
   return (
     <div className="relative">
-      <MouseFollower />
       {children}
     </div>
   );

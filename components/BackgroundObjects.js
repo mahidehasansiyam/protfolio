@@ -14,7 +14,7 @@ export default function BackgroundObjects() {
   const [objects, setObjects] = useState([]);
   const isMobile = useIsMobile();
   
-  if (isMobile) return null;
+
 
   useEffect(() => {
     // Generate bubbles only on client
@@ -97,7 +97,7 @@ export default function BackgroundObjects() {
     return () => ctx.revert();
   }, [mounted, isMobile]);
 
-  if (!mounted) return null;
+  if (!mounted || isMobile) return null;
 
   return (
     <div
