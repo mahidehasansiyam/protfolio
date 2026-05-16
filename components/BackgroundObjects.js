@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 /**
  * Premium Cinematic Bubble System (Hydration-Safe).
@@ -11,31 +12,30 @@ export default function BackgroundObjects() {
   const containerRef = useRef(null);
   const [mounted, setMounted] = useState(false);
   const [objects, setObjects] = useState([]);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     // Generate bubbles only on client
-    const bubbleCount = 100; // High density as requested
+    const bubbleCount = isMobile ? 30 : 100; // "FEW" on mobile
 
     const generatedObjects = [
       ...[...Array(bubbleCount)].map((_, i) => {
-        const size = 2 + Math.random() * 10; // Variety of sizes
+        const size = isMobile ? (1 + Math.random() * 5) : (2 + Math.random() * 10);
         return {
           id: `bubble-${i}`,
           width: size,
           height: size,
-          // Subtle white/blueish tint
           background: `rgba(255, 255, 255, ${0.02 + Math.random() * 0.08})`,
-          blur: Math.random() > 0.8 ? Math.random() * 3 : 0,
+          blur: isMobile ? 0 : (Math.random() > 0.8 ? Math.random() * 3 : 0), // "REDUCE" blur
           border: `1px solid rgba(255, 255, 255, ${0.05 + Math.random() * 0.15})`,
-          // Add a slight glow to some bubbles
-          boxShadow: Math.random() > 0.9 ? "0 0 10px rgba(255, 255, 255, 0.1)" : "none",
+          boxShadow: !isMobile && Math.random() > 0.9 ? "0 0 10px rgba(255, 255, 255, 0.1)" : "none",
         };
       }),
     ];
 
     setObjects(generatedObjects);
     setMounted(true);
-  }, []);
+  }, [isMobile]);
 
   useEffect(() => {
     if (!mounted || !containerRef.current) return;
@@ -60,39 +60,40 @@ export default function BackgroundObjects() {
           ease: "power2.inOut",
         });
 
-        // Complex floating motion
-        // Use separate tweens for x and y with different durations for organic motion
-        gsap.to(el, {
-          x: (Math.random() > 0.5 ? "+=" : "-=") + gsap.utils.random(200, 500),
-          duration: gsap.utils.random(40, 80),
-          repeat: -1,
-          yoyo: true,
-          ease: "sine.inOut",
-        });
+        if (isMobile) return;
 
+        // Complex floating motion for desktop
         gsap.to(el, {
-          y: (Math.random() > 0.5 ? "+=" : "-=") + gsap.utils.random(200, 500),
-          duration: gsap.utils.random(35, 75),
-          repeat: -1,
-          yoyo: true,
-          ease: "sine.inOut",
-        });
+            x: (Math.random() > 0.5 ? "+=" : "-=") + gsap.utils.random(200, 500),
+            duration: gsap.utils.random(40, 80),
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut",
+          });
 
-        // Pulse and slight rotation
-        gsap.to(el, {
-          scale: "*=1.3",
-          rotation: gsap.utils.random(-45, 45),
-          opacity: gsap.utils.random(0.2, 0.9),
-          duration: gsap.utils.random(5, 12),
-          repeat: -1,
-          yoyo: true,
-          ease: "power1.inOut",
-        });
+          gsap.to(el, {
+            y: (Math.random() > 0.5 ? "+=" : "-=") + gsap.utils.random(200, 500),
+            duration: gsap.utils.random(35, 75),
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut",
+          });
+
+          // Pulse and slight rotation for desktop
+          gsap.to(el, {
+            scale: "*=1.3",
+            rotation: gsap.utils.random(-45, 45),
+            opacity: gsap.utils.random(0.2, 0.9),
+            duration: gsap.utils.random(5, 12),
+            repeat: -1,
+            yoyo: true,
+            ease: "power1.inOut",
+          });
       });
     }, containerRef);
 
     return () => ctx.revert();
-  }, [mounted]);
+  }, [mounted, isMobile]);
 
   if (!mounted) return null;
 
@@ -112,7 +113,7 @@ export default function BackgroundObjects() {
             background: obj.background,
             filter: obj.blur > 0 ? `blur(${obj.blur}px)` : "none",
             border: obj.border,
-            backdropFilter: obj.width > 20 ? "blur(4px)" : "none",
+            backdropFilter: (!isMobile && obj.width > 20) ? "blur(4px)" : "none",
             boxShadow: obj.boxShadow,
             willChange: "transform, opacity",
           }}

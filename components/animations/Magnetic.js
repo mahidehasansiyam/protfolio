@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 /**
  * Magnetic component adds a "magnetic" attraction effect to its children.
@@ -9,9 +10,11 @@ import { motion } from "framer-motion";
  */
 export default function Magnetic({ children, strength = 0.5 }) {
   const ref = useRef(null);
+  const isMobile = useIsMobile();
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
   const handleMouseMove = (e) => {
+    if (isMobile) return;
     const { clientX, clientY } = e;
     const { width, height, left, top } = ref.current.getBoundingClientRect();
     

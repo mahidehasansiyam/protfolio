@@ -8,6 +8,7 @@ import TextReveal from "./animations/TextReveal";
 import Magnetic from "./animations/Magnetic";
 import ScrollReveal from "./animations/ScrollReveal";
 import { cn } from "@/lib/utils";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 /**
  * Hero section with advanced entrance animations, parallax imagery,
@@ -16,15 +17,15 @@ import { cn } from "@/lib/utils";
 export default function Hero() {
   const containerRef = useRef(null);
   const mockupRef = useRef(null);
+  const isMobile = useIsMobile();
 
-  // Parallax effect for the mockup using Framer Motion
+  // Parallax effect for the mockup using Framer Motion - "LIGHT" on mobile
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"],
   });
-
-  const yMockup = useTransform(scrollYProgress, [0, 1], [0, 200]);
-  const rotateMockup = useTransform(scrollYProgress, [0, 1], [-2, 5]);
+  const yMockup = useTransform(scrollYProgress, [0, 1], [0, isMobile ? 50 : 200]);
+  const rotateMockup = useTransform(scrollYProgress, [0, 1], [-2, isMobile ? 1 : 5]);
 
   useEffect(() => {
     // Floating animation for the mockup using GSAP
@@ -38,9 +39,9 @@ export default function Hero() {
       });
     }
 
-    // Mouse move rotation for the mockup
+    // Mouse move rotation for the mockup - "DISABLE" on mobile
     const handleMouseMove = (e) => {
-      if (!mockupRef.current) return;
+      if (!mockupRef.current || isMobile) return;
       const { clientX, clientY } = e;
       const { innerWidth, innerHeight } = window;
 
@@ -55,9 +56,11 @@ export default function Hero() {
       });
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
+    if (!isMobile) {
+      window.addEventListener("mousemove", handleMouseMove);
+    }
     return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
+  }, [isMobile]);
 
   return (
     <section
@@ -131,9 +134,12 @@ export default function Hero() {
           style={{ y: yMockup }}
           className="relative flex justify-center lg:justify-end "
         >
-          <div className="relative w-[400px] h-[400px] md:w-[500px] md:h-[500px]">
-            {/* Ambient Glow behind image */}
-            <div className="absolute inset-0 bg-brand-green/20 blur-[100px] rounded-full animate-pulse-slow"></div>
+          <div className="relative w-[300px] h-[300px] md:w-[500px] md:h-[500px]">
+            {/* Ambient Glow behind image - "REDUCE" blur on mobile */}
+            <div className={cn(
+              "absolute inset-0 bg-brand-green/20 rounded-full animate-pulse-slow",
+              isMobile ? "blur-[40px]" : "blur-[100px]"
+            )}></div>
 
             {/* Circular Profile Container with Liquid Morphing Effect */}
             <motion.div

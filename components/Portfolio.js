@@ -7,6 +7,7 @@ import TiltCard from "./animations/TiltCard";
 import ScrollReveal from "./animations/ScrollReveal";
 import Magnetic from "./animations/Magnetic";
 import { cn } from "@/lib/utils";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 const projects = [
   {
@@ -57,14 +58,14 @@ export default function Portfolio() {
   const [filter, setFilter] = useState("All");
   const [selectedProject, setSelectedProject] = useState(null);
   const containerRef = useRef(null);
+  const isMobile = useIsMobile();
 
-  // Parallax for Background Text
+  // Parallax for Background Text - "LIGHT" on mobile
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]
   });
-
-  const xBgText = useTransform(scrollYProgress, [0, 1], ["20%", "-20%"]);
+  const xBgText = useTransform(scrollYProgress, [0, 1], ["20%", isMobile ? "0%" : "-20%"]);
 
   const filteredProjects = filter === "All" 
     ? projects 
@@ -218,13 +219,15 @@ export default function Portfolio() {
 function ProjectCard({ project, index, onView, onHover }) {
   const cardRef = useRef(null);
   
-  // Parallax for Card Image
+  const isMobile = useIsMobile();
+  
+  // Parallax for Card Image - "LIGHT" on mobile
   const { scrollYProgress } = useScroll({
     target: cardRef,
     offset: ["start end", "end start"]
   });
 
-  const yImage = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
+  const yImage = useTransform(scrollYProgress, [0, 1], ["-10%", isMobile ? "0%" : "10%"]);
 
   return (
     <motion.div

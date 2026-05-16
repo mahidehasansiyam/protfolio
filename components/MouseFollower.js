@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 /**
  * Premium MouseFollower with unified Pointer support (Mouse, Touch, Pen).
@@ -13,8 +14,10 @@ export default function MouseFollower() {
   const clusterRef = useRef([]);
   const trailsRef = useRef([]);
   const [isViewMode, setIsViewMode] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
+    if (isMobile) return;
     const dot = dotRef.current;
     const ring = ringRef.current;
     const cluster = clusterRef.current;
@@ -70,7 +73,9 @@ export default function MouseFollower() {
       window.removeEventListener("pointermove", handlePointerMove);
       window.removeEventListener("cursorChange", handleCursorChange);
     };
-  }, []);
+  }, [isMobile]);
+
+  if (isMobile) return null;
 
   return (
     <>

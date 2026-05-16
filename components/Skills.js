@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import ScrollReveal from "./animations/ScrollReveal";
 import TiltCard from "./animations/TiltCard";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 const skillCategories = [
   {
@@ -47,8 +48,10 @@ const skillCategories = [
 
 export default function Skills() {
   const iconRefs = useRef([]);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
+    if (isMobile) return;
     iconRefs.current.forEach((icon, i) => {
       gsap.to(icon, {
         y: -8,

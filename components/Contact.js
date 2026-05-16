@@ -108,7 +108,7 @@ export default function Contact() {
             <ScrollReveal animation="fade-up" delay={0.2}>
               <div className="bg-card-bg border border-border/50 rounded-[2.5rem] p-8 md:p-12 relative overflow-hidden shadow-[0_50px_120px_-20px_rgba(0,0,0,1)] hover:shadow-[0_0_100px_rgba(76,175,80,0.15)] transition-shadow duration-700">
                 {/* Background Accent - reduced on mobile */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-brand-green/[0.02] md:bg-brand-green/5 blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
+                <div className="absolute top-0 right-0 w-64 h-64 bg-brand-green/[0.02] md:bg-brand-green/5 blur-[50px] md:blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
 
                 <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Send me a message</h3>
                 <p className="text-gray-500 mb-12">Tell me about your project, timeline and goals.</p>

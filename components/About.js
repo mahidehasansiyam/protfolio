@@ -37,7 +37,7 @@ export default function About() {
               </div>
               
               {/* Background Glow - reduced on mobile */}
-              <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-brand-green/5 md:bg-brand-green/10 blur-[100px] -z-10"></div>
+              <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-brand-green/5 md:bg-brand-green/10 blur-[60px] md:blur-[100px] -z-10"></div>
             </ScrollReveal>
           </div>
 
