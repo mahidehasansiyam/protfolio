@@ -13,6 +13,8 @@ export default function BackgroundObjects() {
   const [mounted, setMounted] = useState(false);
   const [objects, setObjects] = useState([]);
   const isMobile = useIsMobile();
+  
+  if (isMobile) return null;
 
   useEffect(() => {
     // Generate bubbles only on client
