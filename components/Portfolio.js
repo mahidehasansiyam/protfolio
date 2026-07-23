@@ -8,51 +8,8 @@ import ScrollReveal from "./animations/ScrollReveal";
 import Magnetic from "./animations/Magnetic";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/useIsMobile";
+import { projects, categories } from "@/data/projects";
 
-const projects = [
-  {
-    id: 1,
-    title: "EcoSphere AI",
-    category: "AI & Sustainability",
-    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop",
-    tags: ["Next.js", "Python", "TensorFlow"],
-    liveUrl: "https://example.com",
-    repoUrl: "https://github.com",
-    description: "EcoSphere AI is a platform that uses machine learning to optimize energy consumption in smart cities. It provides real-time data visualization and predictive analytics to reduce carbon footprints."
-  },
-  {
-    id: 2,
-    title: "Nova Dashboard",
-    category: "FinTech",
-    image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=800&auto=format&fit=crop",
-    tags: ["React", "D3.js", "Node.js"],
-    liveUrl: "https://example.com",
-    repoUrl: "https://github.com",
-    description: "A comprehensive financial dashboard for high-frequency traders. Nova features low-latency data feeds, custom indicator builders, and automated portfolio rebalancing."
-  },
-  {
-    id: 3,
-    title: "Aura Marketplace",
-    category: "E-Commerce",
-    image: "https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=800&auto=format&fit=crop",
-    tags: ["Shopify", "Tailwind", "GSAP"],
-    liveUrl: "https://example.com",
-    repoUrl: "https://github.com",
-    description: "Aura is a luxury lifestyle marketplace focused on high-end fashion and art. It features an immersive 3D viewing experience and seamless multi-currency checkouts."
-  },
-  {
-    id: 4,
-    title: "Zenith OS",
-    category: "System Design",
-    image: "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=800&auto=format&fit=crop",
-    tags: ["Rust", "Wasm", "React"],
-    liveUrl: "https://example.com",
-    repoUrl: "https://github.com",
-    description: "An experimental web-based operating system built with Rust and WebAssembly. Zenith explores the limits of browser performance and security for cloud applications."
-  },
-];
-
-const categories = ["All", "AI & Sustainability", "FinTech", "E-Commerce", "System Design"];
 
 export default function Portfolio() {
   const [filter, setFilter] = useState("All");
