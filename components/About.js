@@ -50,7 +50,7 @@ export default function About() {
               
               <div className="space-y-6 text-gray-500 dark:text-gray-400 text-lg leading-relaxed max-w-2xl mb-12">
                 <p>
-                  I'm a passionate Full Stack Developer focused on creating high-performance, scalable, and visually engaging web applications. I specialize in transforming ideas into real-world products with clean code, smooth user experiences, and strong problem-solving.
+                  I&apos;m a passionate Full Stack Developer focused on creating high-performance, scalable, and visually engaging web applications. I specialize in transforming ideas into real-world products with clean code, smooth user experiences, and strong problem-solving.
                 </p>
                 <p>
                   From responsive frontend interfaces to powerful backend systems, I build solutions that are fast, reliable, and designed for growth.

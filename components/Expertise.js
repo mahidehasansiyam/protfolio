@@ -7,12 +7,12 @@ import ScrollReveal from "./animations/ScrollReveal";
 const expertiseData = [
   {
     title: "Frontend Engineering",
-    percentage: 70,
+    percentage: 99,
     details: "React, Next.js, advanced animations"
   },
   {
     title: "Backend & APIs",
-    percentage: 30,
+    percentage: 70,
     details: "Node, REST, GraphQL, auth, payments"
   },
   {
@@ -22,17 +22,17 @@ const expertiseData = [
   },
   {
     title: "Database & Schema Design",
-    percentage: 60,
+    percentage: 85,
     details: "Postgres, Mongo, Prisma"
   },
   {
     title: "DevOps & Deployment",
-    percentage: 80,
+    percentage: 78,
     details: "Vercel, AWS, CI/CD, Docker"
   },
   {
     title: "Problem Solving",
-    percentage: 94,
+    percentage: 98,
     details: "Architecture, debugging, performance"
   },
   {

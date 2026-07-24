@@ -74,33 +74,45 @@ export default function Hero() {
         {/* Left Content */}
         <div className="space-y-8">
           <div className="space-y-4">
-            <h1 className="text-5xl md:text-8xl font-black leading-[1.05] text-foreground tracking-tighter">
-              <TextReveal text="Building Smart" className="block" />
-              <div className="flex items-center gap-4">
-                <TextReveal text="&" delay={0.3} />
+            {/* Status Pill */}
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-green/10 border border-brand-green/20 text-brand-green text-xs md:text-sm font-medium tracking-wide">
+              <span className="w-2 h-2 rounded-full bg-brand-green animate-pulse" />
+              <span>Front-End Developer & UI Specialist</span>
+            </div>
+
+            <h1 className="space-y-1 tracking-tight">
+              <TextReveal text="Hi, I am," className="block text-gray-400 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl font-semibold" />
+              <TextReveal text="Mahedi Hasan" delay={0.15} className="block text-foreground text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black" />
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 pt-1">
+                <TextReveal text="A Front-End" delay={0.3} className="text-gray-400 dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl font-semibold" />
                 <span className="relative inline-block">
-                  <span className="text-brand-green animate-pulse-slow drop-shadow-[0_0_15px_rgba(76,175,80,0.3)]">
-                    Scalable
+                  <span className="text-brand-green animate-pulse-slow drop-shadow-[0_0_20px_rgba(76,175,80,0.4)] text-2xl sm:text-3xl md:text-4xl font-extrabold">
+                    Web Developer
                   </span>
                 </span>
               </div>
-              <TextReveal text="Web Solutions" delay={0.6} />
             </h1>
           </div>
 
           <ScrollReveal delay={1} animation="fade-up">
             <p className="text-gray-500 dark:text-gray-400 text-sm max-w-lg leading-relaxed">
-              A web developer who's passionate about performance, security, and great user experience. From concept to clean code.
+              A web developer who&apos;s passionate about performance, security, and great user experience. From concept to clean code.
             </p>
           </ScrollReveal>
 
           <ScrollReveal delay={1.2} animation="fade-up" className="flex flex-wrap items-center gap-6 pt-4">
             <Magnetic>
               <a
-                className="px-10 py-5 bg-brand-green text-black font-bold rounded-full shadow-[0_20px_40px_-10px_rgba(0,0,0,0.5)] hover:shadow-[0_0_50px_rgba(76,175,80,0.6)] transition-all duration-300"
-                href="#contact"
+                className="px-8 py-5 bg-brand-green text-black font-bold rounded-full shadow-[0_20px_40px_-10px_rgba(0,0,0,0.5)] hover:shadow-[0_0_50px_rgba(76,175,80,0.6)] transition-all duration-300 flex items-center gap-2"
+                href="/resume.pdf"
+                download="Mahide_Hasan_Siyam_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                Hire Me
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                </svg>
+                Download Resume
               </a>
             </Magnetic>
 

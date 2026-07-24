@@ -65,10 +65,10 @@ export default function Contact() {
           <div className="lg:col-span-5">
             <ScrollReveal animation="fade-up">
               <h2 className="text-6xl md:text-7xl font-bold text-foreground leading-[1.1] tracking-tighter mb-8">
-                Let's build <span className="text-brand-green italic font-serif">something</span> exceptional.
+                Let&apos;s build <span className="text-brand-green italic font-serif">something</span> exceptional.
               </h2>
               <p className="text-gray-500 dark:text-gray-400 text-lg leading-relaxed mb-12 max-w-md">
-                I'm currently accepting a limited number of projects for 2026. If you have a vision worth building, I'd love to hear about it.
+                I&apos;m currently accepting a limited number of projects for 2026. If you have a vision worth building, I&apos;d love to hear about it.
               </p>
             </ScrollReveal>
 

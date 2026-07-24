@@ -15,7 +15,7 @@ const skillCategories = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
       </svg>
     ),
-    skills: ["React", "Next.js", "JavaScript", "Tailwind CSS", "GSAP", "Framer Motion"]
+    skills: ["React", "Next.js", "JavaScript", "Tailwind CSS","TypeScript", "GSAP", "Framer Motion"]
   },
   {
     title: "Backend",
@@ -33,7 +33,7 @@ const skillCategories = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
       </svg>
     ),
-    skills: ["PostgreSQL", "MongoDB"]
+    skills: ["MongoDB", "Mongoose"]
   },
   {
     title: "Tools & Platforms",
@@ -42,7 +42,7 @@ const skillCategories = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 011-1h1a2 2 0 100-4H7a1 1 0 01-1-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
       </svg>
     ),
-    skills: ["Git", "GitHub", "Vercel", "Figma", "Vite"]
+    skills: ["Git", "GitHub", "Vercel", "Figma", ]
   }
 ];
 
@@ -62,7 +62,7 @@ export default function Skills() {
         delay: i * 0.3
       });
     });
-  }, []);
+  }, [isMobile]);
 
   return (
     <section id="skills" className="py-32 px-6 md:px-12 bg-brand-bg relative overflow-hidden">

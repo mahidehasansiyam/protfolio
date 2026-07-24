@@ -74,7 +74,7 @@ export default function Navbar() {
           {/* Logo */}
           <Magnetic>
             <a href="#" className="text-2xl font-bold tracking-tight text-foreground cursor-pointer flex items-center gap-1 group">
-              <span className="group-hover:text-brand-green transition-colors">Mahide</span>
+              <span className="group-hover:text-brand-green transition-colors">MAHEDI</span>
               <span className="text-brand-green">.</span>
             </a>
           </Magnetic>

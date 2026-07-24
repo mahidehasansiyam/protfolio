@@ -35,8 +35,10 @@ export default function BackgroundObjects() {
       }),
     ];
 
-    setObjects(generatedObjects);
-    setMounted(true);
+    requestAnimationFrame(() => {
+      setObjects(generatedObjects);
+      setMounted(true);
+    });
   }, [isMobile]);
 
   useEffect(() => {

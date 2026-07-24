@@ -1,7 +1,6 @@
 "use client";
 
 import ScrollReveal from "./animations/ScrollReveal";
-import Magnetic from "./animations/Magnetic";
 import { motion } from "framer-motion";
 
 const academicEducation = [
@@ -78,19 +77,6 @@ export default function Education() {
                 <p className="text-gray-500 dark:text-gray-400 text-lg leading-relaxed max-w-sm">
                   My formal education at prestigious institutions in Bangladesh has provided me with a strong analytical foundation.
                 </p>
-
-                <div className="mt-12 hidden lg:block">
-                  <Magnetic>
-                    <a href="#contact" className="group flex items-center gap-4 text-foreground font-semibold">
-                      <span className="w-12 h-12 rounded-full border border-border flex items-center justify-center group-hover:bg-brand-green group-hover:text-black transition-all duration-500">
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                        </svg>
-                      </span>
-                      Download Resume
-                    </a>
-                  </Magnetic>
-                </div>
               </div>
             </ScrollReveal>
           </div>

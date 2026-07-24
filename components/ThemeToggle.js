@@ -12,10 +12,11 @@ export default function ThemeToggle() {
   const [theme, setTheme] = useState("dark");
 
   useEffect(() => {
-    // Check initial theme or system preference
     const savedTheme = localStorage.getItem("theme") || "dark";
-    setTheme(savedTheme);
-    document.documentElement.classList.toggle("dark", savedTheme === "dark");
+    requestAnimationFrame(() => {
+      setTheme(savedTheme);
+      document.documentElement.classList.toggle("dark", savedTheme === "dark");
+    });
   }, []);
 
   const toggleTheme = () => {
