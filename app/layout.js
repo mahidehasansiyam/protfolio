@@ -13,7 +13,12 @@ const inter = Inter({
 export const metadata = {
   title: "Mahedi Hasan Siyam | Web Developer Portfolio",
   description: "A web developer who's passionate about performance, security, and great user experience.",
-};
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
+};    
 
 export default function RootLayout({ children }) {
   return (
