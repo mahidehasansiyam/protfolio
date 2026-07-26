@@ -105,7 +105,7 @@ export default function Hero() {
               <a
                 className="px-8 py-5 bg-brand-green text-black font-bold rounded-full shadow-[0_20px_40px_-10px_rgba(0,0,0,0.5)] hover:shadow-[0_0_50px_rgba(76,175,80,0.6)] transition-all duration-300 flex items-center gap-2"
                 href="/Mahide_Hasan_Siyam_Resume.pdf"
-                download="Mahide_Hasan_Siyam_Resume.pdf"
+                download="Mahedi_Hasan_Siyam_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
