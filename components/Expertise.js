@@ -7,7 +7,7 @@ import ScrollReveal from "./animations/ScrollReveal";
 const expertiseData = [
   {
     title: "Frontend Engineering",
-    percentage: 99,
+    percentage: 95,
     details: "React, Next.js, advanced animations"
   },
   {

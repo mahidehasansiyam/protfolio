@@ -17,7 +17,7 @@ export default function ScrollReveal({
   delay = 0,
   duration = 1,
   className,
-  once = true,
+  once = false,
 }) {
   const ref = useRef(null);
 

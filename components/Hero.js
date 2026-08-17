@@ -96,7 +96,7 @@ export default function Hero() {
 
           <ScrollReveal delay={1} animation="fade-up">
             <p className="text-gray-500 dark:text-gray-400 text-sm max-w-lg leading-relaxed">
-              A web developer who&apos;s passionate about performance, security, and great user experience. From concept to clean code.
+              A web developer who's passionate about performance, security, and great user experience. From concept to clean code.
             </p>
           </ScrollReveal>
 
@@ -215,7 +215,7 @@ export default function Hero() {
             >
               <FloatingCard
                 icon={<RocketIcon />}
-                value="3+"
+                value="4+"
                 label="Finished Projects"
                 className="bg-black/60 border-white/10 backdrop-blur-xl"
               />

@@ -123,7 +123,7 @@ export default function Portfolio() {
                   alt={selectedProject.title}
                   fill
                   className="object-cover"
-                />
+                />                                           
               </div>
               
               <div className="md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
@@ -137,7 +137,7 @@ export default function Portfolio() {
                 </button>
 
                 <span className="text-brand-green text-xs font-bold tracking-[0.3em] uppercase mb-4">
-                  {selectedProject.category}
+                  {selectedProject.category}    
                 </span>
                 <h3 className="text-4xl md:text-6xl font-bold text-foreground tracking-tighter mb-8">
                   {selectedProject.title}

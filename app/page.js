@@ -18,7 +18,7 @@ export default function Home() {
         <Hero />
         <About />
         <Education />
-        <LogoBar />
+        {/* <LogoBar />    Here is the information which company i have worked in  */}
         <Stats />
         <Skills />
         <Expertise />

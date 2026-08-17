@@ -23,7 +23,7 @@ export default function SmoothScroll({ children }) {
       direction: "vertical",
       gestureDirection: "vertical",
       smooth: true,
-      mouseMultiplier: 1,
+      mouseMultiplier: 1, 
       smoothTouch: false,
       touchMultiplier: 2,
       infinite: false,
